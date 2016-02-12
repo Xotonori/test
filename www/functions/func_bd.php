@@ -1,7 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Хотонори
- * Date: 12.02.2016
- * Time: 3:33
- */
+
+function connectBd() {
+    mysql_connect('localhost', 'root' , '');
+    return mysql_select_db('test');
+}
+
+function closeBd() {
+    mysql_close();
+}
+
+function Errors() {
+    if (!connectBd()) {
+        $_SESSION['error_connect_bd'] = 'Ошибка подключения базы данных!';
+    }
+    if (!connectBd()) {
+        $_SESSION['error_connect_bd'] = 'Ошибка подключения базы данных!';
+    }
+}
