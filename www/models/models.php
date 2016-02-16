@@ -12,8 +12,12 @@ function articleCheck ($title_article, $article) { // Проверка есть 
 function articleInsertBd ($title_article, $article) { // После проверки отправить данные на сервер
     if (articleCheck($title_article, $article)) {
         if (connectBd()) {
-            //mysql_query('INSERT INTO articles (title_article, article) VALUES '.'(\''.$title_article.'\',\''.$article.'\')');
-            echo 'INSERT INTO articles (title_article, article) VALUES '.'(\''.$title_article.'\',\''.$article.'\')';
+            $res = mysql_query('INSERT INTO articles (title_article, article) VALUES '.'(\''.$title_article.'\',\''.$article.'\')');
+            if ($res) {
+                return $res;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
