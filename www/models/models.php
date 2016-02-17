@@ -1,7 +1,7 @@
 <?php
 //require  __DIR__.'../functions/func_bd.php';
 
-function articleCheck ($title_article, $article) { // Проверка есть ли что-то в post статьи
+function articleCheck ($title_article, $article) { // Проверка есть ли что-то в post
     if (isset($title_article) || isset($article)) {
         return true;
     } else {
@@ -10,17 +10,15 @@ function articleCheck ($title_article, $article) { // Проверка есть 
 }
 
 function articleInsertBd ($title_article, $article) { // После проверки отправить данные на сервер
-    if (articleCheck($title_article, $article)) {
-        if (connectBd()) {
-            $res = mysql_query('INSERT INTO articles (title_article, article) VALUES '.'(\''.$title_article.'\',\''.$article.'\')');
-            if ($res) {
-                return $res;
-            } else {
-                return false;
-            }
+    if (connectBd()) {
+        $res = mysql_query('INSERT INTO articles (title_article, article) VALUES '.'(\''.$title_article.'\',\''.$article.'\')');
+        if ($res) {
+            return $res;
         } else {
             return false;
         }
+    } else {
+        return false;
     }
 }
 
@@ -31,4 +29,5 @@ function articleGetBd () {
         return false;
     }
 }
+
 
