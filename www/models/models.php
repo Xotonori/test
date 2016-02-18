@@ -1,13 +1,5 @@
 <?php
 
-function article_Check_Isset($title_article, $article) { // Проверка есть ли что-то в post
-    if (empty($title_article) || empty($article)) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
 function article_Insert_Bd($title_article, $article) { // После проверки отправить данные на сервер
     if (connect_Bd()) {
         $res = mysql_query('INSERT INTO articles (title_article, article) VALUES '.'(\''.$title_article.'\',\''.$article.'\')');

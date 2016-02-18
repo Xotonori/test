@@ -2,6 +2,7 @@
 session_start();
 require  __DIR__.'/models/models.php';
 require  __DIR__.'/functions/func_bd.php';
+require  __DIR__.'/functions/functions.php';
 
 
 if (connect_Bd()) {
