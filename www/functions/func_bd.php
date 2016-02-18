@@ -1,11 +1,11 @@
 <?php
 
-function connectBd() {
-    mysql_connect('localhost', 'root' , '');
+function connect_Bd() {
+    mysql_connect('localhost', 'root' , ''); // Подключаем БД
     return mysql_select_db('test');
 }
 
-function closeBd() {
+function close_Bd() { // Закрываем БД
     mysql_close();
 }
 

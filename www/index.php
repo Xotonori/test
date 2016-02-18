@@ -1,4 +1,27 @@
 <?php
-//require  __DIR__.'/models/models.php';
-//require  __DIR__.'/functions/func_bd.php';
-var_dump(date('H:i:s (d-m-Y)'));
+session_start();
+require  __DIR__.'/models/models.php';
+require  __DIR__.'/functions/func_bd.php';
+
+if (isset($_SESSION['error_check'])) {
+    echo $_SESSION['error_check'];
+    unset($_SESSION['error_check']);
+}
+
+if (connect_Bd()) {
+    if (!empty(article_Array_Get_Bd())) {
+        require __DIR__ . '/view/article_news.php';
+    } else {
+        echo '<span>Статей нет!</span><br><br>';
+    }
+    close_Bd();
+}
+require __DIR__ . '/view/article_send_form.php';
+
+
+
+
+
+
+
+

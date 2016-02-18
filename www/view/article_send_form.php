@@ -1,8 +1,5 @@
-<?php
 
-?>
-
-<form action="../index.php" method="post">
+<form action="/www/send_new_bd.php" method="post">
     Добавте заголовок:<br>
     <input type="text" name="title_article"><br><br>
     Текст статьи:<br>
